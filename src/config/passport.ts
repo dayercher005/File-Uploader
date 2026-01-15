@@ -26,7 +26,7 @@ export async function PassportConfiguration(passport: any, prisma: any){
         })
     )
 
-    passport.serializeUser((member:object, done:any) => {
+    passport.serializeUser((member:any, done:any) => {
         done(null, member.id);
     })
 

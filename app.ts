@@ -10,6 +10,7 @@ import { PrismaPg } from "@prisma/adapter-pg";  // For other db adapters, see Pr
 import { PrismaClient } from "./generated/prisma/client.ts";
 import { PrismaSessionStore } from '@quixo3/prisma-session-store';
 import { PassportConfiguration } from './src/config/passport.ts';
+import { DashboardRouter } from './src/routes/Dashboard/dashboard.ts';
 import { LogInRouter } from './src/routes/Log-In/log-in.ts';
 import { SignUpRouter } from './src/routes/Sign-Up/sign-up.ts';
 
@@ -54,11 +55,13 @@ app.use(
 
 PassportConfiguration(passport, prisma);
 
+app.use("/", DashboardRouter)
 app.use("/sign-up", SignUpRouter);
 app.use("/log-in", LogInRouter);
 
+
 const PORT = 8080;
-app.listen(PORT, (error) => {
+app.listen(PORT, (error: any) => {
   if (error) {
     return error
   }

@@ -3,8 +3,9 @@ import { Strategy as LocalStrategy } from 'passport-local';
 import bcrypt from 'bcryptjs';
 
 export async function PassportConfiguration(passport: any, prisma: any){    
+
     passport.use(
-        new LocalStrategy( async (email:string, password:string, done: Function) => {
+        new LocalStrategy( async (email:string, password:string, done: any) => {
             try{
                 const user = await prisma.user.findUnique({where : {email}})
                 const member = user[0];
@@ -25,7 +26,7 @@ export async function PassportConfiguration(passport: any, prisma: any){
         })
     )
 
-    passport.serializeUser((member:object, done:Function) => {
+    passport.serializeUser((member:object, done:any) => {
         done(null, member.id);
     })
 

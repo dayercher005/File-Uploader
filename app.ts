@@ -1,4 +1,5 @@
 import express from 'express';
+import type { Application } from 'express';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import passport from 'passport';
@@ -8,8 +9,11 @@ import "dotenv/config";
 import { PrismaPg } from "@prisma/adapter-pg";  // For other db adapters, see Prisma docs
 import { PrismaClient } from "./generated/prisma/client.ts";
 import { PrismaSessionStore } from '@quixo3/prisma-session-store';
+import { PassportConfiguration } from './src/config/passport.ts';
+import { LogInRouter } from './src/routes/Log-In/log-in.ts';
+import { SignUpRouter } from './src/routes/Sign-Up/sign-up.ts';
 
-const app = express();
+const app: Application = express();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -22,7 +26,6 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(session({ secret: "cats", resave: false, saveUninitialized: false }))
 app.use(passport.session())
-
 
 
  // DATABASE_URL defined in env file included in prisma.config.js; see Prisma docs
@@ -48,6 +51,11 @@ app.use(
     )
   })
 );
+
+PassportConfiguration(passport, prisma);
+
+app.use("/sign-up", SignUpRouter);
+app.use("/log-in", LogInRouter);
 
 const PORT = 8080;
 app.listen(PORT, (error) => {

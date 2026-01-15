@@ -1,8 +1,9 @@
 import { body, validationResult, matchedData } from 'express-validator';
-import type { Request, Response, NextFunction } from 'express'; 
+import type { ValidationChain } from 'express-validator'
+import type { Request, Response, NextFunction, RequestHandler } from 'express'; 
 import passport from 'passport';
 
-const validateLogInForm = [
+const validateLogInForm: (ValidationChain | RequestHandler)[] = [
     body("email")
     .notEmpty()
     .isEmail()
@@ -14,7 +15,7 @@ const validateLogInForm = [
 
 export const sendLogInForm = [
     validateLogInForm,
-    (req: Request, res: Response, next: NextFunction) => {
+    async (req: Request, res: Response, next: NextFunction) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()){
             return res.status(404).render("partials/error", {error: errors.array()})

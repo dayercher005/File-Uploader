@@ -1,9 +1,10 @@
 import { body, validationResult, matchedData } from 'express-validator';
-import type { Request, Response } from 'express'; 
+import type { ValidationChain } from 'express-validator';
+import type { Request, Response, RequestHandler } from 'express';
 import bcrypt from 'bcryptjs';
 import { prisma } from '../../../lib/prisma.ts';
 
-const validateSignUpForm = [
+export const validateSignUpForm: (ValidationChain | RequestHandler)[] = [
     body("name")
     .notEmpty()
     .withMessage("Please enter your full name"),
@@ -19,14 +20,15 @@ const validateSignUpForm = [
     })
 ]
 
-export const sendSignUpForm = [
-    validateSignUpForm, 
-    async (req: Request, res: Response) => {
+export async function sendSignUpForm(req: Request, res: Response) {
 
         const errors = validationResult(req);
         if (!errors.isEmpty()){
-            res.status(404).render("partials/error", {error: errors.array()})
+            console.log(1);
+            res.status(404).render("partials/error", {error: errors.array()});
+
         }
+
 
         const { name, email, password } = matchedData(req);
         const EncryptedPassword = await bcrypt.hash(password, 10);
@@ -37,10 +39,7 @@ export const sendSignUpForm = [
                 username: email,
                 password: EncryptedPassword,
             }
-        });
-
-        res.locals.users = users;
+        })
 
         res.redirect("/log-in");
     }
-]

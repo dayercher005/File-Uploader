@@ -1,0 +1,67 @@
+/* General CSS Styling for Forms */
+
+.form-body{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    background: hsl(0, 0%, 92%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.form-container {
+    background: rgb(255, 255, 255);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-header{
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 28px;
+    text-align: center;
+}
+
+label{
+    display: block;
+    margin: 0.8rem 0;
+    color: #333;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+input{
+    width: 90%;
+    padding: 10px 14px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-family: inherit;
+}
+
+span{
+    color: hsl(0, 98%, 56%);
+}
+
+.submit{
+    width: 97%;
+    padding: 14px;
+    background: hsl(208, 89%, 46%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 1.1rem 0;
+    transition: transform 0.2s ease;
+}
+
+.submit:hover{
+    background-color: hsl(208, 86%, 52%);
+    transform: translateY(-1.5px);
+}

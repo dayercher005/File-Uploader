@@ -5,4 +5,4 @@ import { sendLogInForm } from '../../controllers/Log-In/sendLogInForm.ts';
 export const LogInRouter = Router(); 
 
 LogInRouter.get("/", renderLogInForm);
-LogInRouter.post("/", sendLogInForm)
+LogInRouter.post("/", sendLogInForm);

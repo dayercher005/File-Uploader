@@ -12,7 +12,7 @@ const validateLogInForm = [
     .withMessage("Password cannot be empty")
 ]
 
-const sendLogInForm = [
+export const sendLogInForm = [
     validateLogInForm,
     (req: Request, res: Response, next: NextFunction) => {
         const errors = validationResult(req);

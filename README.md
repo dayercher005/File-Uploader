@@ -22,6 +22,10 @@
 │   └── schema.prisma
 ├── prisma.config.ts
 ├── public
+│   ├── images
+│   │   ├── collaborate.svg
+│   │   ├── private.svg
+│   │   └── upload.svg
 │   └── styles.css
 ├── README.md
 ├── script.ts
@@ -29,6 +33,8 @@
 │   ├── config
 │   │   └── passport.ts
 │   ├── controllers
+│   │   ├── Dashboard
+│   │   │   └── dashboard.ts
 │   │   ├── Log-In
 │   │   │   ├── renderLogInForm.ts
 │   │   │   └── sendLogInForm.ts
@@ -36,15 +42,20 @@
 │   │       ├── renderSignUpForm.ts
 │   │       └── sendSignUpForm.ts
 │   ├── routes
+│   │   ├── Dashboard
+│   │   │   └── dashboard.ts
 │   │   ├── Log-In
 │   │   │   └── log-in.ts
 │   │   └── Sign-Up
 │   │       └── sign-up.ts
 │   └── views
+│       ├── Dashboard
+│       │   └── dashboard.ejs
 │       ├── Log-In
 │       │   └── log-in.ejs
 │       ├── partials
-│       │   └── error.ejs
+│       │   ├── error.ejs
+│       │   └── navbar.ejs
 │       └── Sign-Up
 │           └── sign-up.ejs
 └── tsconfig.json

@@ -1,3 +1,12 @@
+* {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    margin: 0;
+}
+
+body{
+    background: hsl(154, 63%, 56%);
+}
+
 /* General CSS Styling for Forms */
 
 .form-body{
@@ -7,12 +16,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
 }
 
 .form-container {
     background: rgb(255, 255, 255);
-    padding: 40px;
+    padding: 3.2rem;
     border-radius: 12px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     width: 100%;
@@ -57,11 +65,101 @@ span{
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    margin: 1.1rem 0;
+    margin: 3rem 0;
     transition: transform 0.2s ease;
 }
 
 .submit:hover{
     background-color: hsl(208, 86%, 52%);
     transform: translateY(-1.5px);
+}
+
+/* CSS Styling for Navbar and Homepage */
+
+nav{
+    background: hsl(0, 0%, 100%);
+    padding: 1.1rem 1.2rem;
+}
+
+.navbarContainer{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.dashboardHeader{
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: hsl(0, 0%, 15%);
+}
+
+.dashboard-header{
+    text-align: center;
+    font-weight: 800;
+    font-size: 1.55rem;
+    margin: 4.2rem 0;
+}
+
+.button{
+    width: 100%;
+    padding: 0.8rem 1.45rem;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    margin: 0 0.4rem;
+}
+
+.button:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(67, 67, 67, 0.6);
+}
+
+.log-Button{
+    background: #1ed888;
+    color: white;
+    border: 2px solid #1ed888;
+}
+
+.sign-Button{
+    background: hsl(0, 2%, 26%);
+    color: #1ed888;
+    border: 2px solid hsl(0, 2%, 26%);
+}
+
+.dashboard-container{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2.6rem 0;
+}
+
+.dashboard-images{
+    height: 11.5rem;
+    width: 11.5rem;
+    padding: 1.3rem;
+}
+
+.image-text-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 15rem;
+    border-radius: 15px;
+    padding: 0.8rem 1.1rem;
+    background: hsl(0, 0%, 100%);
+}
+
+.dashboard-secondary-text{
+    font-size: 0.9rem;
+    text-align: center;
 }

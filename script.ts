@@ -12,7 +12,6 @@ async function main() {
   console.log('Created user:', user)
 }
 
-  // Fetch all users with their posts
 
 main()
   .then(async () => {

@@ -13,18 +13,16 @@ export const validateLogInForm: (ValidationChain | RequestHandler)[] = [
     .withMessage("Password cannot be empty")
 ]
 
-export async function sendLogInForm(req: Request, res: Response, next: NextFunction) {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()){
-        return res.status(404).render("partials/error", {error: errors.array()})
-    }
-    next();
-}
 
+export const sendLogInForm = [
+    (req: Request, res: Response, next: NextFunction) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()){
+            return res.status(404).render("partials/error", {error: errors.array()})
+        } next();
+    }, passport.authenticate("local", {
+        successRedirect: "/", 
+        failureRedirect: "fuckyou"
+    })
+]
 
-export async function PassportValidation(req: Request, res: Response, next: NextFunction){
-    await passport.authenticate("local", {
-        successRedirect: '/', 
-        failureRedirect: '/fail',
-    });
-}

@@ -33,7 +33,7 @@ export async function sendSignUpForm(req: Request, res: Response) {
         const users = await prisma.user.create({
             data: {
                 name: name,
-                username: email,
+                email: email,
                 password: EncryptedPassword,
             }
         })

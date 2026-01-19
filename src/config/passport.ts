@@ -1,24 +1,34 @@
 import { Strategy as LocalStrategy } from 'passport-local';
-
+import "dotenv/config";
+import { PrismaPg } from '@prisma/adapter-pg'
+import { PrismaClient } from '../../generated/prisma/client.ts';
+import passport from 'passport';
+const connectionString = `${process.env.DATABASE_URL}`
+const adapter = new PrismaPg({ connectionString })
+const prisma = new PrismaClient({ adapter })
 import bcrypt from 'bcryptjs';
 
-export async function PassportConfiguration(passport: any, prisma: any){    
+   
+export function PassportConfiguration(passport: any ){
 
     passport.use(
-        new LocalStrategy( async (email:string, password:string, done: any) => {
+        new LocalStrategy({usernameField: 'username'}, async (username:string, password:string, done: any) => {
             try{
-                const user = await prisma.user.findUnique({where : {email}})
-                const member = user[0];
+                const user = await prisma.user.findUnique({
+                    where: {
+                        username: username,
+                    }
+                })
 
-                if (!member){
+                if (!user){
                     return done(null, false, {message: "Incorrect Username"})
                 }
 
-                const match = await bcrypt.compare(password, member.password);
+                const match = await bcrypt.compare(password, user.password);
                 if (!match){
                     return done(null, false, {message: "Incorrect password"})
                 }
-                return done(null, member);
+                return done(null, user);
 
             } catch(error){
                 return done(error)
@@ -30,11 +40,14 @@ export async function PassportConfiguration(passport: any, prisma: any){
         done(null, member.id);
     })
 
-    passport.deserializeUser( async (id:number, done:Function) => {
+    passport.deserializeUser( async (id: number, done:Function) => {
         try{
-            const user = await prisma.user.findUnique({where : {id}})
-            const member = user[0];
-            done(null, member);
+            const user = await prisma.user.findUnique({
+                where: {
+                    id: id,
+                }
+            })
+            done(null, user);
         } catch(error){
             done(error)
         }

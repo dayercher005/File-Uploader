@@ -1,9 +1,9 @@
-import { body, validationResult, matchedData } from 'express-validator';
+import { body, validationResult } from 'express-validator';
 import type { ValidationChain } from 'express-validator'
 import type { Request, Response, NextFunction, RequestHandler } from 'express'; 
 import passport from 'passport';
 
-const validateLogInForm: (ValidationChain | RequestHandler)[] = [
+export const validateLogInForm: (ValidationChain | RequestHandler)[] = [
     body("email")
     .notEmpty()
     .isEmail()
@@ -13,17 +13,18 @@ const validateLogInForm: (ValidationChain | RequestHandler)[] = [
     .withMessage("Password cannot be empty")
 ]
 
-export const sendLogInForm = [
-    validateLogInForm,
-    async (req: Request, res: Response, next: NextFunction) => {
-        const errors = validationResult(req);
-        if (!errors.isEmpty()){
-            return res.status(404).render("partials/error", {error: errors.array()})
-        }
-        next();
-    },
-    passport.authenticate("local", {
-        successRedirect: "/dashboard",
-        failureRedirect: "/"
-    })
-]
+export async function sendLogInForm(req: Request, res: Response, next: NextFunction) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()){
+        return res.status(404).render("partials/error", {error: errors.array()})
+    }
+    next();
+}
+
+
+export async function PassportValidation(req: Request, res: Response, next: NextFunction){
+    await passport.authenticate("local", {
+        successRedirect: '/', 
+        failureRedirect: '/fail',
+    });
+}

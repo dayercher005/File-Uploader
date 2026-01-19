@@ -4,8 +4,8 @@ async function main() {
   // Create a new user with a post
   const user = await prisma.user.create({
     data: {
-      name: 'Raphael Ho Zi Jie',
-      username: 'raphaelhozj@gmail.com',
+      name: 'Travis',
+      username: 'travis@gmail.com',
       password: '1234567',
     },
   })

@@ -22,7 +22,7 @@ export const sendLogInForm = [
         } next();
     }, passport.authenticate("local", {
         successRedirect: "/", 
-        failureRedirect: "fuckyou"
+        failureRedirect: "/"
     })
 ]
 

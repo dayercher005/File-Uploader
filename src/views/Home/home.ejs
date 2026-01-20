@@ -7,7 +7,12 @@
 </head>
 
 <body>
-    <%- include('../partials/unauthenticatedNavbar')%>
+
+    <% if (locals.user) {%>
+        <%- include('../partials/authenticatedNavbar')%>
+    <%} else {%>
+        <%- include('../partials/unauthenticatedNavbar')%>
+    <%}%>
 
     <h1 class="dashboard-header">"One click away from uploading brilliance"<br> Enterprise-grade file uploads, made simple.</h1>
 

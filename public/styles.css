@@ -77,7 +77,7 @@ span{
     color: hsl(208, 86%, 52%)
 }
 
-/* CSS Styling for Navbar and Homepage */
+/* CSS Styling for Navbar, Homepage and Dashboard */
 
 nav{
     background: hsl(0, 0%, 100%);
@@ -165,4 +165,15 @@ nav{
 .dashboard-secondary-text{
     font-size: 0.9rem;
     text-align: center;
+}
+
+.dashboardHeader{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1.5rem 0;
+    gap: 7rem;
+}
+
+.createFolderButton{
+    background-color: hsl(208, 89%, 46%);
 }

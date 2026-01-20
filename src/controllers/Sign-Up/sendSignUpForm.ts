@@ -2,7 +2,8 @@ import { body, validationResult, matchedData } from 'express-validator';
 import type { ValidationChain } from 'express-validator';
 import type { Request, Response, RequestHandler } from 'express';
 import bcrypt from 'bcryptjs';
-import { prisma } from '../../../lib/prisma.ts';
+import { CreateUsers } from '../../lib/queries.ts';
+import { prisma } from '../../lib/prisma.ts';
 
 export const validateSignUpForm: (ValidationChain | RequestHandler)[] = [
     body("name")
@@ -30,13 +31,7 @@ export async function sendSignUpForm(req: Request, res: Response) {
         const { name, email, password } = matchedData(req);
         const EncryptedPassword = await bcrypt.hash(password, 10);
 
-        const users = await prisma.user.create({
-            data: {
-                name: name,
-                email: email,
-                password: EncryptedPassword,
-            }
-        })
+        CreateUsers(name, email, EncryptedPassword);
 
         return res.redirect("/log-in");
     }

@@ -60,7 +60,7 @@ app.use("/sign-up", SignUpRouter);
 app.use("/log-in", LogInRouter);
 app.use("/log-out", LogOutRouter);
 app.use("/dashboard", DashboardRouter);
-app.use("/createFolder", CreateFolderRouter);
+app.use("/create-folder", CreateFolderRouter);
 
 
 const PORT = 8080;

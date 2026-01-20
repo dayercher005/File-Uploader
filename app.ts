@@ -2,16 +2,17 @@ import express from 'express';
 import type { Application } from 'express';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import './src/config/passport.ts'
+import './src/config/passport.ts';
 import session from 'express-session';
 import passport from 'passport';;
 import "dotenv/config";
 import { PrismaPg } from '@prisma/adapter-pg'
 import { PrismaClient } from './generated/prisma/client.ts'
 import { PrismaSessionStore } from '@quixo3/prisma-session-store';
-import { DashboardRouter } from './src/routes/Dashboard/dashboard.ts';
+import { HomePageRouter } from './src/routes/Homepage/homepage.ts';
 import { LogInRouter } from './src/routes/Log-In/log-in.ts';
 import { SignUpRouter } from './src/routes/Sign-Up/sign-up.ts';
+import { DashboardRouter } from './src/routes/Dashboard/dashboard.ts';
 
 
 const connectionString = `${process.env.DATABASE_URL}`
@@ -23,7 +24,7 @@ const __dirname = path.dirname(__filename);
 
 const app: Application = express();
 
-app.use(express.urlencoded({ extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.set("views", path.join(__dirname, "src/views"));
 app.set("view engine", "ejs");
 const assetsPath = path.join(__dirname, "/public/");
@@ -52,9 +53,10 @@ app.use(
 app.use(passport.session());
 
 
-app.use("/", DashboardRouter)
+app.use("/", HomePageRouter);
 app.use("/sign-up", SignUpRouter);
 app.use("/log-in", LogInRouter);
+app.use("/dashboard", DashboardRouter);
 
 
 const PORT = 8080;

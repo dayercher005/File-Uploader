@@ -1,6 +1,6 @@
 import { Strategy as LocalStrategy } from 'passport-local';
 import "dotenv/config";
-import { prisma } from '../../lib/prisma.ts';
+import { prisma } from '../lib/prisma.ts';
 import passport from 'passport';
 import bcrypt from 'bcryptjs';
 

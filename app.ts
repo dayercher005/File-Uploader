@@ -11,8 +11,10 @@ import { PrismaClient } from './generated/prisma/client.ts'
 import { PrismaSessionStore } from '@quixo3/prisma-session-store';
 import { HomePageRouter } from './src/routes/Homepage/homepage.ts';
 import { LogInRouter } from './src/routes/Log-In/log-in.ts';
+import { LogOutRouter } from './src/routes/Log-Out/log-out.ts';
 import { SignUpRouter } from './src/routes/Sign-Up/sign-up.ts';
 import { DashboardRouter } from './src/routes/Dashboard/dashboard.ts';
+import { CreateFolderRouter } from './src/routes/CreateFolder/createFolder.ts';
 
 
 const connectionString = `${process.env.DATABASE_URL}`
@@ -56,7 +58,9 @@ app.use(passport.session());
 app.use("/", HomePageRouter);
 app.use("/sign-up", SignUpRouter);
 app.use("/log-in", LogInRouter);
+app.use("/log-out", LogOutRouter);
 app.use("/dashboard", DashboardRouter);
+app.use("/createFolder", CreateFolderRouter);
 
 
 const PORT = 8080;

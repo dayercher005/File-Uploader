@@ -24,7 +24,7 @@ export async function CreateFolders(name: string, email: string){
 }
 
 export async function ReadAllFolders(id: string){
-    await prisma.user.findMany({
+    const allFolders = await prisma.user.findMany({
         where:{
             id: id
         }, 
@@ -32,4 +32,14 @@ export async function ReadAllFolders(id: string){
             folders: true
         }
     })
+
+    return allFolders;
+}
+
+export async function CreateFiles(){
+
+}
+
+export async function ReadAllFiles(){
+
 }

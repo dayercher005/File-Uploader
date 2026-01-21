@@ -6,19 +6,23 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 
-<body class="form-body">
-    <div class="form-container">
-        <h1 class="form-header">Add File</h1>
-        
-        <form id="CreateFile" action="/dashboard/<%= folderParameters %>/create-file" method="POST" enctype="multipart/form-data">
+<body>
 
-            <div class="form-group">
-                <label for="file">Upload your File<span>*</span></label>
-                <input type="file" id="file" name="file" required>
-            </div>
+    <a href="/dashboard/<%=folderParameters%>"><img class="arrow" src="/images/back.svg"></a>
 
-            <button class="submit" type="submit">Add New File</button>
-        </form>
+    <div class="form-body">
+        <div class="form-container">
+            <h1 class="form-header">Add File</h1>
+            
+            <form id="CreateFile" action="/dashboard/<%= folderParameters %>/create-file" method="POST" enctype="multipart/form-data">
 
+                <div class="form-group">
+                    <label for="file">Upload your File<span>*</span></label>
+                    <input type="file" id="file" name="file" required>
+                </div>
+
+                <button class="submit" type="submit">Add New File</button>
+            </form>
+        </div>
     </div>
 </body>

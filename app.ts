@@ -5,7 +5,6 @@ import { fileURLToPath } from 'node:url';
 import './src/config/passport.ts';
 import session from 'express-session';
 import passport from 'passport';
-import multer from 'multer';
 import "dotenv/config";
 import { PrismaPg } from '@prisma/adapter-pg'
 import { PrismaClient } from './generated/prisma/client.ts'

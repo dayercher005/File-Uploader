@@ -10,10 +10,10 @@
     <div class="form-container">
         <h1 class="form-header">Add File</h1>
         
-        <form id="CreateFile" action="/create-file" method="POST">
+        <form id="CreateFile" action="/dashboard/<%= folderParameters %>/create-file" method="POST" enctype="multipart/form-data">
 
             <div class="form-group">
-                <label for="file">Upload your File:<span>*</span></label>
+                <label for="file">Upload your File<span>*</span></label>
                 <input type="file" id="file" name="file" required>
             </div>
 

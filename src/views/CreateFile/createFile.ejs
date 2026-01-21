@@ -8,10 +8,11 @@
 
 <body>
 
-    <a href="/dashboard/<%=folderParameters%>"><img class="arrow" src="/images/back.svg"></a>
-
     <div class="form-body">
         <div class="form-container">
+
+            <a href="/dashboard/<%=folderParameters%>"><img class="arrow" src="/images/back.svg"></a>
+
             <h1 class="form-header">Add File</h1>
             
             <form id="CreateFile" action="/dashboard/<%= folderParameters %>/create-file" method="POST" enctype="multipart/form-data">

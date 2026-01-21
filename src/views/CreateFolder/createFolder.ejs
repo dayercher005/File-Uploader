@@ -9,10 +9,12 @@
 
 <body>
 
-    <a href="/dashboard"><img class="arrow" src="/images/back.svg"></a>
-
     <div class="form-body">
+        
         <div class="form-container">
+            
+            <a href="/dashboard/<%=folderParameters%>"><img class="arrow" src="/images/back.svg"></a>
+
             <h1 class="form-header">Add Folder</h1>
             
             <form id="CreateFolder" action="/create-folder" method="POST">

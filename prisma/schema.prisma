@@ -39,6 +39,8 @@ model Folders {
 model Files {
   id        String  @id @default(uuid())
   name      String
+  size      Int
+  date      DateTime @default(now())
   folder    Folders @relation(fields: [folderId], references: [id])
   folderId  String 
 }

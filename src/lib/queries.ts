@@ -36,10 +36,29 @@ export async function ReadAllFolders(id: string){
     return allFolders;
 }
 
-export async function CreateFiles(){
-
+export async function CreateFiles(name: any, size: any, id: any){
+    await prisma.files.create({
+        data: {
+            name: name,
+            size: size,
+            folder: {
+                connect: {
+                    id: id
+                }
+            }
+        }
+    })
 }
 
-export async function ReadAllFiles(){
+export async function ReadAllFiles(id: string){
+    const allFiles = await prisma.folders.findMany({
+        where:{
+            id: id
+        },
+        include:{
+            files: true
+        }
+    });
 
+    return allFiles;
 }

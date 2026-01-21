@@ -172,8 +172,49 @@ nav{
     justify-content: space-evenly;
     margin: 1.5rem 0;
     gap: 7rem;
+    align-items: center;
 }
 
 .createFolderButton{
     background-color: hsl(208, 89%, 46%);
+    width: 80%;
+}
+
+.folders-container{
+    background-color: hsla(0, 0%, 91%, 0.854);
+    width: 65%;
+    margin: auto;
+    border-radius: 30px;
+    margin-bottom: 4rem;
+}
+
+.folder-container{
+    display: flex;
+    gap: 0.5rem;
+    padding: 1.5rem;
+    text-decoration: none;
+    border-bottom: 0.3rem solid rgb(76, 76, 76);
+    transition: 0.3s transform;
+}
+
+.folder-container:last-child{
+    border: none;
+}
+
+.folder-container:hover{
+    transform: translateY(-2.5px);
+}
+
+.folder-image{
+    height: 1.4rem;
+    width: 1.4rem;
+}
+
+.folder-name{
+    text-decoration: none;
+    color: hsl(0, 2%, 26%)
+}
+
+.createFileButton{
+    background-color: hsl(343, 92%, 54%);
 }

@@ -5,6 +5,5 @@ export async function renderDashboardPage(req: Request, res: Response){
     res.locals.user = req.user;
     const user = await ReadAllFolders(res.locals.user.id);
     res.locals.member = user[0];
-    console.log(user[0]);
     res.render("Dashboard/dashboard");
 }

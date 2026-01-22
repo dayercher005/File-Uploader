@@ -24,12 +24,24 @@
 │   │   │   └── migration.sql
 │   │   ├── 20260120054609_folders_and_files
 │   │   │   └── migration.sql
+│   │   ├── 20260121063751
+│   │   │   └── migration.sql
 │   │   └── migration_lock.toml
 │   └── schema.prisma
 ├── prisma.config.ts
 ├── public
+│   ├── data
+│   │   └── uploads
+│   │       ├── 0685264bcda7b0f46bae6741ad52413a
+│   │       ├── 38f0b8cba37297556436621b7f1774a7
+│   │       ├── 4f1dc3ed435686f5e58dfa277ab097f6
+│   │       ├── 69a35ca98ed678508e55cb0038ec67c7
+│   │       └── 75cdc10b545ed51eb4445a80d24d80b2
 │   ├── images
+│   │   ├── back.svg
 │   │   ├── collaborate.svg
+│   │   ├── file.png
+│   │   ├── folder.svg
 │   │   ├── private.svg
 │   │   └── upload.svg
 │   └── styles.css
@@ -38,8 +50,12 @@
 ├── src
 │   ├── config
 │   │   ├── authenticateRoute.ts
-│   │   └── passport.ts
+│   │   ├── passport.ts
+│   │   └── supabase.ts
 │   ├── controllers
+│   │   ├── CreateFile
+│   │   │   ├── renderCreateFileForm.ts
+│   │   │   └── sendCreateFileForm.ts
 │   │   ├── CreateFolder
 │   │   │   ├── renderCreateFolderForm.ts
 │   │   │   └── sendCreateFolderForm.ts
@@ -74,10 +90,14 @@
 │   │   └── Sign-Up
 │   │       └── sign-up.ts
 │   └── views
+│       ├── CreateFile
+│       │   └── createFile.ejs
 │       ├── CreateFolder
 │       │   └── createFolder.ejs
 │       ├── Dashboard
-│       │   └── dashboard.ejs
+│       │   ├── dashboard.ejs
+│       │   ├── file.ejs
+│       │   └── folder.ejs
 │       ├── Home
 │       │   └── home.ejs
 │       ├── Log-In

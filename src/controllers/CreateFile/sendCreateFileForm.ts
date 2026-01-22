@@ -34,5 +34,7 @@ export async function sendCreateFileForm(req: Request, res: Response){
 
     CreateFiles(req.file?.originalname, req.file?.size, req.params.folder);
 
+    UploadFile(req.file);
+
     res.redirect(`/dashboard/${req.params.folder}`);
 }

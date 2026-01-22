@@ -3,7 +3,8 @@ import { ReadIndividualFile } from '../../lib/queries.ts';
 
 export async function renderIndividualFile(req: Request, res: Response){
 
-    res.locals.folderParameters = req.params.folder
+    res.locals.folderParameters = req.params.folder;
+    res.locals.fileParameters = req.params.file;
 
     function DateConverter(gmtDateString: any) {
         const dateObj = new Date(gmtDateString);

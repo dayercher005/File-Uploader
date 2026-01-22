@@ -50,6 +50,7 @@ export async function CreateFiles(name: any, size: any, id: any){
     })
 }
 
+
 export async function ReadAllFiles(id: any){
     const allFiles = await prisma.folders.findMany({
         where:{
@@ -59,6 +60,15 @@ export async function ReadAllFiles(id: any){
             files: true
         }
     });
-
     return allFiles;
+}
+
+
+export async function ReadIndividualFile(id: any){
+    const individualFile = await prisma.files.findUnique({
+        where:{
+            id: id
+        }
+    });
+    return individualFile;
 }

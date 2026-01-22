@@ -175,7 +175,7 @@ nav{
     align-items: center;
 }
 
-.createFolderButton{
+.create{
     background-color: hsl(208, 89%, 46%);
     width: 80%;
 }
@@ -215,7 +215,7 @@ nav{
     color: hsl(0, 2%, 26%)
 }
 
-.createFileButton{
+.delete{
     background-color: hsl(343, 92%, 54%);
 }
 
@@ -284,4 +284,10 @@ nav{
     max-width: 35%;
     margin: auto;
     gap: 2.5rem;
+}
+
+.button-container{
+    display: flex;
+    align-items: center;
+    flex-basis: 400px;
 }

@@ -17,8 +17,13 @@
 
             <h3>Files in <%=folderName%></h3>
 
-            <div>
-                <a class="button createFileButton" href="<%=folderParameters%>/create-file">Create a New File</a>
+            <div class="button-container">
+                <div>
+                    <a class="button create" href="<%=folderParameters%>/create-file">Create a New File</a>
+                </div>
+                <form action="/dashboard/<%=folderParameters%>" method="POST">
+                    <button class="button delete" type="submit">Delete Folder</button>
+                </form>
             </div>
         </div>
 

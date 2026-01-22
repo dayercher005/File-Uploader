@@ -7,9 +7,8 @@ export async function renderIndividualFolder(req: Request, res: Response){
 
     const FolderData = await ReadAllFiles(req.params.folder);
 
-    res.locals.folderDetails = FolderData[0];
     res.locals.folderName = FolderData[0]?.name;
-    console.log(FolderData[0]);
+    res.locals.folderDetails = FolderData[0];
     
     res.render("Dashboard/folder");
 }

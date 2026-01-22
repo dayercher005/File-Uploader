@@ -261,3 +261,27 @@ nav{
 .page:hover{
     background-color: hsl(152, 62%, 43%);
 }
+
+.individual-file-container{
+    display: flex;
+    margin: 2.7rem auto;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+}
+
+.download{
+    background-color: hsl(208, 86%, 52%);
+}
+
+.file-information{
+    display: flex;
+    background-color:hsl(0, 0%, 100%);
+    padding: 3.5rem;
+    border-radius: 30px;
+    flex-direction: column;
+    align-items: center;
+    max-width: 35%;
+    margin: auto;
+    gap: 2.5rem;
+}

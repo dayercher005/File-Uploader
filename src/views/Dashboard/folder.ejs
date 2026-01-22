@@ -15,7 +15,7 @@
 
             <a href="/"><img class="arrow page" src="/images/back.svg"></a>
 
-            <h3>Files in </h3>
+            <h3>Files in <%=folderName%></h3>
 
             <div>
                 <a class="button createFileButton" href="<%=folderParameters%>/create-file">Create a New File</a>
@@ -30,7 +30,7 @@
                             <img class="folder-image" alt="folder-image" src="/images/file.png">
                             <h3 class="folder-name"><%= file.name %></h3>
                         </div>
-                        <h3><%=file.size%></h3>
+                        <h3><%= file.size / 1000000 %>MB</h3>
                     </a>
                 <%})%>
             <%}%>

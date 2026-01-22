@@ -94,7 +94,34 @@
 ```
 
 ---
+## System Architecture
 
+```mermaid
+---
+config: 
+    theme: 'dark'
+---
+graph TB
+    Client[Browser Client]
+    Server[Express.js Server]
+    DB[(PostgreSQL Database)]
+    Cloud[Supabase Storage]
+    Multer[Multer Middleware]
+    Passport[Passport.js Auth]
+    Prisma[Prisma ORM]
+    
+    Client -->|HTTP Requests| Server
+    Server -->|Session Management| Passport
+    Passport -->|Read/Write Sessions| Prisma
+    Server -->|File Upload| Multer
+    Multer -->|Store Files| Cloud
+    Server -->|Database Queries| Prisma
+    Prisma -->|SQL Queries| DB
+    Cloud -->|File URLs| Server
+    Server -->|HTTP Responses| Client
+```
+
+---
 
 ## How to Run
 

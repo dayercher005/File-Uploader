@@ -36,6 +36,14 @@ export async function ReadAllFolders(id: string){
     return allFolders;
 }
 
+export async function DeleteFolder(id: any){
+    await prisma.folders.delete({
+        where:{
+            id: id
+        }
+    })
+}
+
 export async function CreateFiles(name: any, size: any, id: any){
     await prisma.files.create({
         data: {
@@ -71,4 +79,13 @@ export async function ReadIndividualFile(id: any){
         }
     });
     return individualFile;
+}
+
+
+export async function DeleteFile(id: any){
+    await prisma.files.delete({
+        where:{
+            id: id
+        }
+    })
 }

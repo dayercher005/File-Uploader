@@ -1,5 +1,6 @@
 # File-Uploader
 
+![Screenshot of Webpage](public/images/Preview.png).
 ---
 
 ## Project Structure 

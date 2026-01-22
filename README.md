@@ -99,7 +99,7 @@
 ```mermaid
 ---
 config: 
-    theme: 'neutral'
+    theme: 'dark'
 ---
 graph TB
     Client[Browser Client]

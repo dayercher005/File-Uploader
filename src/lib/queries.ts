@@ -2,12 +2,12 @@ import { prisma } from './prisma.ts';
 
 export async function CreateUsers(name: string, email: string, password: string){
     await prisma.user.create({
-            data: {
-                name: name,
-                email: email,
-                password: password,
-            }
-        })
+        data: {
+            name: name,
+            email: email,
+            password: password,
+        }
+    })
 }
 
 export async function CreateFolders(name: string, email: string){

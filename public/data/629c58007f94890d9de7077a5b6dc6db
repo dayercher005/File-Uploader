@@ -1,0 +1,68 @@
+---
+layout: ../../layouts/research.astro
+id: "designing-an-intuitive-interface-for-a-c3-platform"
+title: "Designing an intuitive interface for a C3 platform"
+authors: "Ethan Chew, Brandon Koh, Darius Koh, Galen Tay & Ian Lim."
+publishedDate: "2025-09-20"
+excerpt: "For decades, C3 systems depended on thick clients—large, hardware-specific software installations. However, with modern compute capabilities, the browser has evolved into a capable, scalable, and maintainable platform for mission-critical systems. "
+readTime: "9 min read"
+category: "C3 Platform"
+---
+
+## Platform Introduction
+
+We aim to build a Command, Control and Communication (C3) System that allows operators to command and control many drones simultaneously. As an operator on shift, maintaining control and situational awareness of an airspace, requires split-second decisions to be made, each informed by a wide range of metrics, and factors that must be rapidly assessed, before a final decision can be taken. As such, our overarching objective of the C3 system would be to develop a unified platform that enables operators with all mission critical information regarding geospatial terrain visualisation, key metrics, and drone telemetry data. This centralised access aims to enhance situational effectiveness and streamline information processing, to support faster, more confident decision-making in unpredictable environments.
+
+## A Browser-Based C3?
+
+For decades, C3 systems depended on thick clients—large, hardware-specific software installations. However, with modern compute capabilities, the browser has evolved into a capable, scalable, and maintainable platform for mission-critical systems. 
+
+With the evolution in the browser’s capabilities, many developer tools and technologies have also emerged that are increasingly performant, reliable, and scalable. As developer tools continue to evolve, web development remains a widely shared skillset. This makes it easier to onboard new contributors who already have programming foundations, which diminishes the barriers to collaboration, and expands the potential support base for the C3 in the long run.
+
+Modern web technologies, especially with GPU-accelerated rendering via WebGL/WebGPU and multithreaded logic through Web Workers, have shattered the old performance ceiling. However, we understand that a web application might not be the ideal choice for systems running on-premise. Hence, we used Tauri.
+The C3 is built on a commonstack of NextJS, TailwindCSS, as well as a fastApi backend. In addition to  the fundamental web building tech stack employed, the C3 employs the use of LuciadRIA, a web based geospatial visualisation solution, that is also utilised by other established, and long standing defence agencies, such as DSTA, and HTX.
+To bring this system to native platforms, we use Tauri, a lightweight framework that enables cross-platform desktop and mobile app development using standard web technologies. This method of development makes it easy to deploy it similarly to traditional clients, but with the added advantage of web applications’ flexibility and maintainability.
+
+In short, we believe that web technologies are not only more lightweight than traditional clients, but they also allow for greater support between platforms, and allow for easier expansions and changes to the platform in the future.
+
+## Layout and Customisation
+
+With a system like C3 having a wide range of features (which can be overwhelming for operators), having a functional layout with clear sections and separations is important.
+
+C3 enables operators to possess a real-time overview of all drones, while enabling them to have granular control over each drone’s route.  By selecting a drone on the left-hand panel, they are presented with a ‘control panel’ on the right-hand side, offering granular control over each drone’s operation. 
+
+These concerns on functional layout are reflected in our current layout of the C3 platform. There are 5 main sections: the sidebar, the 2D drone overview map, the 3D drone detail map, the drone control panel and the drone information panel. This separation:
+
+<ul>
+    <li>Minimizes visual clutter: Dividing features into clear sections prevents operators from feeling overwhelmed by a large number of functionalities.</li>
+    <li>Improves Functionality and User Experience (UX): A functional layout with clear separations allows operators to quickly locate and use the required tools, which is essential in critical situations.</li>
+    <li>Streamlines Processes: Sectioning streamlines the decision-making process by organizing relevant information and controls logically. The platform layout follows a left-to-right design principle, aligning with typical user viewing patterns. Operators interact with the 2D drone overview map on the left, and upon selecting a drone, a detailed overview and control panel appears on the right. This design facilitates a progressive workflow, starting with a broad overview and moving to specific, detailed drone management.</li>
+</ul>
+
+Additionally,different operators of C3 systems might require different set-ups (e.g. different numbers of screens). We also wanted to reduce the possibility of information overload due to the extensive amount of data shown on the main page. To ensure that the system suits all of operators’ different needs, a level of customizability has been taken into consideration.
+
+Both the 2D Drone Overview Map and the 3D Drone Detail Map can be expanded to full-screen mode. This allows operators to focus on a particular map and gain a clearer, more comprehensive view when needed. Additionally, the 2D Drone Overview Map offers the flexibility of being popped out into a separate window. This feature caters to users with multiple monitors or those who prefer specific layout arrangements. It also supports workflows where having the overview map on a separate display enhances operational efficiency.
+
+By incorporating these and other customizable elements, the C3 platform adapts to a wide range of operational scenarios and user preferences, ultimately improving the user experience and maximizing productivity.
+
+Operators may choose to use the C3 Platform on Multiple Monitors, enhancing their situational awareness. A future real-life implementation can also allow different teams of operators to manage different sections of the C3, further reducing their workload and allowing them to focus on a particular section.
+
+## Colour
+
+In Command, Control, and Communicate (C3) systems, interface clarity is non-negotiable. Operators need to interpret information at a glance, especially during critical scenarios. Colour isn’t just a matter of aesthetics in these systems—it’s a fundamental part of interaction design.
+
+1. Neutral Foundations for Focus
+A dark grey background paired with white text creates a high-contrast, low-glare environment. This reduces eye strain during prolonged use and helps the user stay focused without distraction. The dark theme also makes it easier to draw attention to interactive elements through selective colour usage.
+
+2. Colour as Priority Indicator
+To avoid cognitive overload, colour is used sparingly and strategically in the application:
+* Red is reserved for critical alerts or high-priority actions (e.g. emergency shutdown, threat detection). It triggers immediate attention
+* Amber/Orange signifies warnings or cautionary states—important but not urgent.
+* Green or Blue indicates safe or normal system states.
+* Grey or desaturated tones are used for secondary actions or disabled states to reduce visual noise.
+
+3. Consistency
+By applying colours consistently across the interface, users develop intuitive expectations. For example , if red consistently represents an urgent command, users will learn to respond to it without hesitation.
+
+4. Emotional impact
+In high-stress situations, overly saturated or bright colours can contribute to fatigue or anxiety. Muted tones are used in this systems unless immediate action is required.

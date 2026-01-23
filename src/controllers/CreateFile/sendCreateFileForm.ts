@@ -15,8 +15,8 @@ export const validateCreateFileForm = [
             throw new Error("No File is provided")
         }
 
-        if (req.file.size > 50000000) { // 50,000,000 bytes = 50MB
-            throw new Error('File size limit exceeded (50MB)');
+        if (req.file.size > 6000000) { // 6,000,000 bytes = 6MB
+            throw new Error('File size limit exceeded (6MB)');
         }
 
         return true

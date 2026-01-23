@@ -1,0 +1,84 @@
+---
+layout: ../../layouts/research.astro
+id: "brain-foundation-models"
+title: "Our Forays into Brain Foundation Models"
+authors: "Prannaya Gupta and Aloysius Han"
+publishedDate: "2024-09-15"
+excerpt: "As we approach a future where regional affluence is soaring, yet the headcounts of console-based operators continue to drop, one fact is without question: cognitive saturation is inevitable."
+readTime: "8 min read"
+category: "AI & Neuroscience"
+
+---
+
+As we approach a future where regional affluence is soaring, yet the headcounts of console-based operators continue to drop, one fact is without question: cognitive saturation is inevitable. Hence, we need to find technical solutions that can help not just monitor but augment the human operators, for instance with the creation of a human-machine "centaur".
+
+However, before we go all crazy, we must first start by understanding the mental states of the traffic operator, understanding exactly what sort of inherent limits and strengths the controller might have in a quantitative and measurable way.
+
+
+## The Hard Sciences and the Angry Operators
+
+Most neuroscientific research in this domain explores the use of various sensors to instrument the operator or subject. Some examples include electroencephalography (EEG), electrodermal activity (EDA) and eye-tracking. Many research studies employ the use of EEG caps and eye-tracking glasses, which can potentially add discomfort to the operator.
+
+Rest assured, AETHER experimentalists are normal humans, we don’t like wearing extraneous accessories. We don’t want to unnecessarily instrument operators when we operationalise new gadgetry. (Ahem. Unless you’re part of our experiments.)
+
+With that in mind, when we design headsets or utilise these sensors, we don’t want to “christmas tree” the operator, that is to say to decorate his face with so many sensors that it becomes hard to breathe. We need to consider ergonomic considerations as we don’t want to affect operations by having operators all tied up with cabling.
+
+<img src="../src/assets/christmas_tree_operator.png">
+
+Hence, we need to identify what locations we can place EEG electrodes to optimize the comfort and operability of an EEG headset. However, from a neuroscientific aspect, identifying what brainwaves can actually provide us with useful information is easier said than done. Neuroscience is a deeply technical field and modern research still doesn’t know enough about the brain, let alone us as individuals new to this field – we really lack the domain expertise. Believe us - scientific papers are hard to read and we question life after going through them.
+
+So it is better that we reach out to experts that (we hope) know what they are doing. 
+
+We’ve reached out and are currently working with researchers from various research institutes across Singapore, including NTU’s Centre for Brain Computing Research (CBCR), Singapore Polytechnic’s (SP) Centre of Excellence in Maritime Safety (CEMS) and researchers from SUTD. These researchers possess prior experience and knowledge in this domain, having worked on projects in working this sort of brain research before. Internally, we’re exchanging notes and war stories with PiXEL (Shoutout to Cloak!), and happily using their suite of equipment.
+
+Experimentation fatigue is, however, a significant problem at hand. To develop technology or AI models that can actually monitor and understand the behavioural patterns of such operators, we need to collect a lot of domain-specific data – largely via trials. However, endless cycles of trials with new sensors is not a pragmatic way to go: we need a solution that can adapt to the quick-moving sensor technology, wherein we will keep finding cheaper, faster and better sensors. We’ve already been collecting—and throwing away—old datasets because they were rendered irrelevant when sensors were replaced. It’s an important exploration: could we find a way to end this never-ending nightmare of collecting, curating and throwing away data?
+
+When Aloysius first raised the problem to his SUTD collaborator, the latter felt that a conceptual “brain model”–-something that can model brain activity accurately and efficiently—was a research domain that was several years away and quickly perished the idea.
+
+However, we felt that the idea had legs. 
+
+When we actually sat down and researched further on the key enabling technology being developed in this domain, we found something rather interesting. In the past few years, computational neuroscience and cognitive sciences have slowly been catching up to major developments in AI over the past decade, slowly adopting various technologies such as variational autoencoders, diffusion learning, and most recently, foundation models. This work has led to the development of what we now call Brain Foundation Models.
+
+## Brain Foundation Models
+
+The promise of brain foundation models, or BFMs for short, is simple: generically modelling the relationship of various input channels requires a large amount of raw data. Be it drivers on a simulator, or gamers playing Atari, be it athletes playing memory games, or console-based operators carrying out their daily operations, we can collect data from all across this domain, from sensors far and wide, and feed them all into a foundation model in a process known as pre-training. This foundation model then learns to find generic relationships in the data that normal models trained to only accept specific inputs simply cannot.
+
+<img src="../src/assets/pretraining.svg">
+
+Foundation models are able to generalize to various EEG waveforms, and they are largely able to find relationships across both the spatial and temporal fields. What this means is that for an array of input channels from various EEG electrodes, the model identifies spatial features by analysing the data across various channels for the same timestamp. The model can also similarly identify temporal features by analysing individual channels across timestamps.
+
+<img src="../src/assets/cbramod_block.png">
+
+In fact, for downstream tasks like cognitive load monitoring, or imagined speech decoding, a foundation model is incredibly useful as it is able to generically provide insights which we can use by using a foundation model to convert input signals into a “vector” representation that is more representative of the various relationships. You can think of this vector as describing the brain activity, and we can train downstream models based on a method known as supervised fine-tuning (SFT), where we train models to learn key relationships for specific tasks.
+
+<img src="../src/assets/finetuning.svg">
+
+This approach can potentially promise to solve that same problem of experimental fatigue, as we can generically identify relations across different sets of sensors, teaching the model not to generalise based on the input ranges of values, but based on the general waveform. Hence, the baseline foundation model is standardised and, even if more knowledge is introduced with newer sensors, we can simply alter the foundation model using a method known as continual pre-training (CPT), which allows us to provide more information for knowledge expansion. However, we can potentially expect fine-tuned models to remain consistent as we expect the final vector representation from the model to be standardised even after CPT is performed.
+
+It was fortuitous that while we were in the midst of exploring BFMs, there was a parallel development that turned out to be opportunistically timely. Microsoft had invited RAiD, and through that AETHER, to their office in Singapore to attend a course on the development and finetuning of LLMs. This was a unique opportunity as no other cloud provider offered this sort of workshop. (Shoutout to Microsoft!) Many of the terms we have stated in the past few paragraphs, such as pre-training, SFT and CPT, are terms we gathered from this course.
+
+<img src="../src/assets/microsoft.png">
+
+## A Validation of our Bets?
+
+While researching, we serendipitously found something truly fascinating: China (and especially Zhejiang University) is investing big in this effort.
+
+TODO: Talk about our major serendipitous find: China (and especially Zhejiang University) is investing big in this effort, most of the papers are from China etc. Since they are moving so aggressively in this direction, we would think they believe this is a promising line-of-attack, at the national level.
+
+## A Summary
+From this whole experience, here are a few tidbits of information worth remembering.
+Firstly, as we move towards building such technologies, getting perspectives from knowledgeable individuals is crucial in developing technologies that push the frontier of research. Even then, we learnt that experts don’t hold all the answers, especially with the technology landscape evolving so quickly. Consult but also independently verify: we learnt that we must do our own homework and research to make sure we don’t fall behind. Not all research is spelled out for us, and it is ultimately our job to understand how these systems work.
+
+Secondly, we are aware of experimentation fatigue, and we are divinely discontent with getting locked into a cycle of collecting, curating and throwing away data over the years. We are digging deep into the sciences to figure out how to better address this.
+
+Thirdly, finding and seizing opportunities is incredibly important. Microsoft’s timely course on building LLMs from scratch helped us further understand BFMs at an algorithm-construction level.
+
+Lastly, China is moving big-time in BFMs. We don’t know whether it is a matter of their  national research strategy.
+
+In subsequent issues, we will talk about our (mis)adventures with designing a brain-computer interface headset.
+
+## References
+    1. Ref 1
+    2. Ref 2
+    3. Ref 3
+    4. Ref 4

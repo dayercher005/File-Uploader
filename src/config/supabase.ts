@@ -1,7 +1,7 @@
 // Supabase config file
 import { createClient } from '@supabase/supabase-js'
 import 'dotenv/config';
-import { decode } from 'base64-arraybuffer';
+import fs from 'fs';
 
 const URL: any = process.env.SUPABASE_PROJECT_URL;
 const API_Key: any = process.env.SUPABASE_API_KEY;
@@ -10,11 +10,17 @@ const supabase = createClient(URL, API_Key)
 
 export async function UploadFile(file: any) {
 
-    const fileBase64 = decode(file.buffer.toString('base64'));
+    const fileBuffer = fs.readFileSync(file.path);
 
     const { data, error } = await supabase.storage.from('File Uploader Storage')
-        .upload(file.originalname, fileBase64);
+        .upload(file.path, fileBuffer, {
+            contentType: file.mimetype
+        });
     if (error) {
         throw error;
-    } 
+    }
+
+    const { data: publicUrlData } = supabase.storage
+        .from('File Uploader Storage')
+        .getPublicUrl(file.path);
 }

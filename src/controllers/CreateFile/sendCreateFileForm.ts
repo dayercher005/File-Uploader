@@ -3,10 +3,10 @@ import { check, validationResult } from 'express-validator';
 import multer from 'multer';
 import { CreateFiles } from '../../lib/queries.ts';
 import { UploadFile } from '../../config/supabase.ts';
+import fs from 'fs';
 
 // Multer Configuration (using memory storage)
-const storage = multer.memoryStorage();
-export const MulterConfig = multer({storage: storage});
+export const MulterConfig = multer({ dest: './public/data'});
 
 
 export const validateCreateFileForm = [

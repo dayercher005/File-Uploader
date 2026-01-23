@@ -36,6 +36,17 @@ export async function ReadAllFolders(id: string){
     return allFolders;
 }
 
+export async function UpdateFolder(id: any, name: string){
+    await prisma.folders.update({
+        where:{
+            id: id
+        },
+        data:{
+            name: name
+        }
+    })
+}
+
 export async function DeleteFolder(id: any){
     await prisma.folders.delete({
         where:{

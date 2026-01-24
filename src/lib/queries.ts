@@ -55,11 +55,12 @@ export async function DeleteFolder(id: any){
     })
 }
 
-export async function CreateFiles(name: any, size: any, id: any){
+export async function CreateFiles(name: any, size: any, url: any, id: any){
     await prisma.files.create({
         data: {
             name: name,
             size: size,
+            publicURL: url, 
             folder: {
                 connect: {
                     id: id

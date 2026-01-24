@@ -6,7 +6,7 @@ import fs from 'fs';
 const URL: any = process.env.SUPABASE_PROJECT_URL;
 const API_Key: any = process.env.SUPABASE_API_KEY;
 
-const supabase = createClient(URL, API_Key)
+export const supabase = createClient(URL, API_Key)
 
 export async function UploadFile(file: any) {
 
@@ -19,8 +19,4 @@ export async function UploadFile(file: any) {
     if (error) {
         throw error;
     }
-
-    const { data: publicUrlData } = supabase.storage
-        .from('File Uploader Storage')
-        .getPublicUrl(file.path);
 }

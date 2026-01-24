@@ -148,8 +148,8 @@ graph TB
 
 ## Tech Stack 
 
-![Static Badge](https://img.shields.io/badge/Typescript-_?style=for-the-badge&logo=Typescript&logoColor=%233178C6&labelColor=black&color=%233178C6) ![Static Badge](https://img.shields.io/badge/EJS-_?style=for-the-badge&logo=EJS&logoColor=%23B4CA65&labelColor=black&color=%23B4CA65) ![Static Badge](https://img.shields.io/badge/Express-_?style=for-the-badge&logo=Express&labelColor=black&color=%23000000) ![Static Badge](https://img.shields.io/badge/Passport-_?style=for-the-badge&logo=Passport&logoColor=%2334E27A&labelColor=black&color=%2334E27A)
- ![Static Badge](https://img.shields.io/badge/PostgreSQL-_?style=for-the-badge&logo=PostgreSQL&logoColor=%234169E1&labelColor=black&color=%234169E1) ![Static Badge](https://img.shields.io/badge/Prisma-_?style=for-the-badge&logo=Prisma&logoColor=%232D3748&labelColor=black&color=%232D3748)
+![Static Badge](https://img.shields.io/badge/Typescript-_?style=for-the-badge&logo=Typescript&logoColor=%233178C6&labelColor=black&color=%233178C6)     ![Static Badge](https://img.shields.io/badge/EJS-_?style=for-the-badge&logo=EJS&logoColor=%23B4CA65&labelColor=black&color=%23B4CA65)   ![Static Badge](https://img.shields.io/badge/Express-_?style=for-the-badge&logo=Express&labelColor=black&color=%23000000)   ![Static Badge](https://img.shields.io/badge/Passport-_?style=for-the-badge&logo=Passport&logoColor=%2334E27A&labelColor=black&color=%2334E27A)
+    ![Static Badge](https://img.shields.io/badge/PostgreSQL-_?style=for-the-badge&logo=PostgreSQL&logoColor=%234169E1&labelColor=black&color=%234169E1)     ![Static Badge](https://img.shields.io/badge/Prisma-_?style=for-the-badge&logo=Prisma&logoColor=%232D3748&labelColor=black&color=%232D3748)
 
 ---
 

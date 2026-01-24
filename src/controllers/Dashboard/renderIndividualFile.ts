@@ -15,6 +15,7 @@ export async function renderIndividualFile(req: Request, res: Response){
     const FileData = await ReadIndividualFile(req.params.file);
     res.locals.fileName = FileData?.name;
     res.locals.fileSize = FileData?.size;
+    res.locals.publicURL = FileData?.publicURL;
     res.locals.date = DateConverter(FileData?.date);
 
     res.render("Dashboard/file");

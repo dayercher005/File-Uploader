@@ -3,6 +3,7 @@ import { check, validationResult } from 'express-validator';
 import multer from 'multer';
 import { CreateFiles } from '../../lib/queries.ts';
 import { UploadFile } from '../../config/supabase.ts';
+import { supabase } from '../../config/supabase.ts';
 import fs from 'fs';
 
 // Multer Configuration (using memory storage)
@@ -32,9 +33,19 @@ export async function sendCreateFileForm(req: Request, res: Response){
         res.status(404).render('partials.errors');
     }
 
-    CreateFiles(req.file?.originalname, req.file?.size, req.params.folder);
-
     UploadFile(req.file);
+
+    const filePath = req.file?.path;
+    if (!filePath) {
+        res.status(400).render('partials.errors');
+        return;
+    }
+
+    const { data: publicURL} = supabase.storage
+        .from('File Uploader Storage')
+        .getPublicUrl(filePath);
+
+    CreateFiles(req.file?.originalname, req.file?.size, publicURL.publicUrl, req.params.folder);
 
     res.redirect(`/dashboard/${req.params.folder}`);
 }

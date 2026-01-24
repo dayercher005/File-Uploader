@@ -27,22 +27,22 @@
 │   │   │   └── migration.sql
 │   │   ├── 20260121063751
 │   │   │   └── migration.sql
+│   │   ├── 20260123131155_cascade
+│   │   │   └── migration.sql
+│   │   ├── 20260124033507
+│   │   │   └── migration.sql
 │   │   └── migration_lock.toml
 │   └── schema.prisma
 ├── prisma.config.ts
 ├── public
 │   ├── data
 │   │   └── uploads
-│   │       ├── 0685264bcda7b0f46bae6741ad52413a
-│   │       ├── 38f0b8cba37297556436621b7f1774a7
-│   │       ├── 4f1dc3ed435686f5e58dfa277ab097f6
-│   │       ├── 69a35ca98ed678508e55cb0038ec67c7
-│   │       └── 75cdc10b545ed51eb4445a80d24d80b2
 │   ├── images
 │   │   ├── back.svg
 │   │   ├── collaborate.svg
 │   │   ├── file.png
 │   │   ├── folder.svg
+│   │   ├── preview.png
 │   │   ├── private.svg
 │   │   └── upload.svg
 │   └── styles.css
@@ -61,6 +61,8 @@
 │   │   │   ├── renderCreateFolderForm.ts
 │   │   │   └── sendCreateFolderForm.ts
 │   │   ├── Dashboard
+│   │   │   ├── deleteIndividualFile.ts
+│   │   │   ├── deleteIndividualFolder.ts
 │   │   │   ├── renderDashboardPage.ts
 │   │   │   ├── renderIndividualFile.ts
 │   │   │   └── renderIndividualFolder.ts

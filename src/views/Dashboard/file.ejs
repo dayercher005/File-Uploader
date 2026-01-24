@@ -15,7 +15,7 @@
         <h2>File Details</h2>
         <div class="download-container button-container">
             <div>
-                <a class="button create" download>Download File</a>
+                <a href="<%=publicURL%>?download" class="button create" download>Download File</a>
             </div>
             <form action="/dashboard/<%=folderParameters%>/<%=fileParameters%>" method="POST">
                 <button class="button delete" type="submit">Delete File</button>
